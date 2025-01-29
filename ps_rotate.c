@@ -28,7 +28,7 @@ void	ra(int *a)
 	a[i - 1] = x;
 }
 
-/* rb */
+/* rotate b */
 void	rb(int *b)
 {
 	int	x;
@@ -44,7 +44,9 @@ void	rb(int *b)
 	b[i - 1] = x;
 }
 
-
-/* rr */
-
-
+/* rotate a and b */
+void	rr(int *a, int *b)
+{
+	ra(a);
+	rb(b);
+}

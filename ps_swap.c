@@ -15,9 +15,9 @@
 /* swap a */
 void	sa(int *a)
 {
-	int x;
+	int	x;
 
-	if(a[1] && a[0])
+	if (a[1] && a[0])
 	{
 		x = a[0];
 		a[0] = a[1];
@@ -28,9 +28,9 @@ void	sa(int *a)
 /* swap b */
 void	sb(int *b)
 {
-	int x;
+	int	x;
 
-	if(b[1] && b[0])
+	if (b[1] && b[0])
 	{
 		x = b[0];
 		b[0] = b[1];
