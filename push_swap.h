@@ -6,15 +6,15 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 22:13:49 by diogribe          #+#    #+#             */
-/*   Updated: 2025/01/29 22:13:49 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/01/30 15:20:44 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft.h"
-# include "ft_printf.h"
+# include "libft/libft.h"
+# include "libft/ft_printf/ft_printf.h"
 
 /* Push */
 
