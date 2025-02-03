@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 18:49:54 by diogribe          #+#    #+#             */
-/*   Updated: 2024/12/18 19:10:49 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/03 20:18:12 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int	ft_putuns_fd(unsigned int nb, int fd)
 	if (nb > 9)
 	{
 		count += ft_putuns_fd(nb / 10, fd);
-		count += ft_putchar_fd((nb % 10 + '0'), fd);
+		count += pf_ft_putchar_fd((nb % 10 + '0'), fd);
 	}
 	else
 	{
-		count += ft_putchar_fd((nb + '0'), fd);
+		count += pf_ft_putchar_fd((nb + '0'), fd);
 	}
 	return (count);
 }

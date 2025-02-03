@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:43:04 by diogribe          #+#    #+#             */
-/*   Updated: 2025/01/28 17:23:27 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/03 20:50:55 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 void	pa(int *a, int *b)
 {
 	int	i;
-	int	x;
 
 	i = 0;
 	if (!a[0])
@@ -44,7 +43,6 @@ void	pa(int *a, int *b)
 void	pb(int *a, int *b)
 {
 	int	i;
-	int	x;
 
 	i = 0;
 	if (!b[0])

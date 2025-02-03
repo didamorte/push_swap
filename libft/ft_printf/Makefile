@@ -2,15 +2,15 @@
 NAME = libftprintf.a
 
 CC		= cc
-CFLAGS	= -Wall -Wextra -Werror -g
+CFLAGS	= -Wall -Wextra -Werror
 AR		= ar 
 ARFLAGS	= -rc
 RM		= rm -rf
 
 SRCS	= ft_strlen.c \
-		ft_putchar_fd.c \
-		ft_putnbr_fd.c \
-		ft_putstr_fd.c \
+		pf_ft_putchar_fd.c \
+		pf_ft_putnbr_fd.c \
+		pf_ft_putstr_fd.c \
 		ft_printf.c \
 		ft_lowhex.c \
 		ft_uphex.c \

@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   pf_ft_putchar_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 18:45:27 by diogribe          #+#    #+#             */
-/*   Updated: 2024/12/18 19:10:49 by diogribe         ###   ########.fr       */
+/*   Created: 2024/10/25 18:48:56 by diogribe          #+#    #+#             */
+/*   Updated: 2025/02/03 20:18:12 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr_fd(char *s, int fd)
+int	pf_ft_putchar_fd(char c, int fd)
 {
-	int	i;
-
-	i = 0;
-	if (s == NULL)
-		s = "(null)";
-	while (s[i])
-	{
-		ft_putchar_fd(s[i], fd);
-		i++;
-	}
-	return (i);
+	write(fd, &c, 1);
+	return (1);
 }

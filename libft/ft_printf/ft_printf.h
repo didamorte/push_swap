@@ -25,13 +25,13 @@ int		ft_printf(const char *format, ...);
 size_t	ft_strlen(const char *s);
 
 /*escreve um int*/
-int		ft_putnbr_fd(int nb, int fd);
+int		pf_ft_putnbr_fd(int nb, int fd);
 /*escreve um unsined int*/
 int		ft_putuns_fd(unsigned int nb, int fd);
 /*escreve uma string*/
-int		ft_putstr_fd(char *s, int fd);
+int		pf_ft_putstr_fd(char *s, int fd);
 /*escreve um caracter*/
-int		ft_putchar_fd(char c, int fd);
+int		pf_ft_putchar_fd(char c, int fd);
 /*converte de decimal pra hex*/
 int		ft_lowhex(unsigned int num, char *base);
 /*converte de decimal pra hex*/

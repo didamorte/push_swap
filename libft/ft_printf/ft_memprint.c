@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 18:51:18 by diogribe          #+#    #+#             */
-/*   Updated: 2025/01/02 15:00:56 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/03 20:17:31 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ int	ft_memprint(unsigned long long num, char *base)
 	char	*mem;
 
 	if (num == 0)
-		return (ft_putstr_fd("(nil)", 1));
+		return (pf_ft_putstr_fd("(nil)", 1));
 	mem = (char *)malloc(16 + 1 * sizeof(char));
 	count = 0;
 	i = 0;
-	count += ft_putstr_fd("0x", 1);
+	count += pf_ft_putstr_fd("0x", 1);
 	while (i <= 16 && num > 0)
 	{
 		temp = num % 16;
@@ -54,7 +54,7 @@ int	ft_memprint(unsigned long long num, char *base)
 	}
 	mem[i] = '\0';
 	ft_reverse(mem);
-	count += ft_putstr_fd(mem, 1);
+	count += pf_ft_putstr_fd(mem, 1);
 	free(mem);
 	return (count);
 }

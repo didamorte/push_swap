@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:05:38 by diogribe          #+#    #+#             */
-/*   Updated: 2025/01/02 15:01:01 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/03 20:18:12 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_lowhex(unsigned int num, char *base)
 	char	*hex;
 
 	if (num == 0)
-		return (ft_putchar_fd('0', 1));
+		return (pf_ft_putchar_fd('0', 1));
 	hex = (char *)malloc(16 + 1 * sizeof(char));
 	count = 0;
 	i = 0;
@@ -53,7 +53,7 @@ int	ft_lowhex(unsigned int num, char *base)
 	}
 	hex[i] = '\0';
 	ft_reverse(hex);
-	count += ft_putstr_fd(hex, 1);
+	count += pf_ft_putstr_fd(hex, 1);
 	free(hex);
 	return (count);
 }

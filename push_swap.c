@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:41:04 by diogribe          #+#    #+#             */
-/*   Updated: 2025/01/30 17:37:39 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/03 22:27:59 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,28 +38,30 @@ int	dup_check(int *a)
 
 int	*stack_maker(int ac, char **av)
 {
-	int	*stack;
-	int	arr[101];
 	int	i;
+	int	*arr;
 
 	if (!av[2])
 	{
-		i = -1;
-		while (av[1][++i])
-			arr[i] = ft_atoi(av[1][i]);
-		*stack = (int *)ft_calloc(i + 1, sizeof(int));
+		av = ft_split(av[1], ' '); // esta a cortar o primeiro numero
+		stack_maker(ac, av);
 	}
 	else
 	{
 		i = 0;
-		while (av[++i])
-			arr[i] = ft_atoi(av[i]);
-		*stack = (int *)ft_calloc(i, sizeof(int));
+		arr = (int *)ft_calloc(ac, sizeof(int));
+		while (++i < ac)
+			arr[i - 1] = ft_atoi(av[i]);
 	}
-	return (stack);
+	return (arr);
 }
 
 int	main(int ac, char **av)
 {
+	int *arr = stack_maker(ac, av);
 	
+	for (int i = 0; i < ac; i++)
+	{
+		ft_printf("%i, ", arr[i]);
+	}
 }
