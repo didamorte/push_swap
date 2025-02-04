@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:41:04 by diogribe          #+#    #+#             */
-/*   Updated: 2025/02/04 14:16:36 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/04 18:59:32 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,34 @@ int	*stack_maker(int ac, char **av)
 	return (arr);
 }
 
+void	radix_sort(int *a, int *b, int size)
+{
+	int	i;
+	int	small;
+
+	i = -1;
+	while (++i < size)
+		if(a[i] & 1 == 0)
+			pb(a, b);
+	
+}
+
 int	main(int ac, char **av)
 {
-	int *arr = stack_maker(ac, av);
-	
-	for (int i = 0; i < ac; i++)
+	int	size;
+	int	*a = stack_maker(ac, av);
+	while(a[size])
+			size++;
+	int	b[size];
+
+	radix_sort(a, b, size);
+	for (int i = 0; i < ac - 1 ; i++)
 	{
-		ft_printf("%i, ", arr[i]);
+		if(a[i] != 0)
+			ft_printf("%i ", a[i]);
+		if(b[i]!= 0)
+			ft_printf("%i", b[i]);
+		ft_printf("\n");
 	}
+	ft_printf("a b");
 }
