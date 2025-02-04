@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:41:04 by diogribe          #+#    #+#             */
-/*   Updated: 2025/02/03 22:27:59 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:16:36 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,18 @@ int	*stack_maker(int ac, char **av)
 {
 	int	i;
 	int	*arr;
+	int	size;
 
 	if (!av[2])
 	{
-		av = ft_split(av[1], ' '); // esta a cortar o primeiro numero
-		stack_maker(ac, av);
+		av = ft_split(av[1], ' ');
+		size = 0;
+		while(av[size])
+			size++;
+		arr = (int *)ft_calloc(size + 1, sizeof(int));
+		i = -1;
+		while (++i < size)
+			arr[i] = ft_atoi(av[i]);
 	}
 	else
 	{
