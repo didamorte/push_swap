@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:41:04 by diogribe          #+#    #+#             */
-/*   Updated: 2025/02/04 18:59:32 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/05 22:52:55 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,61 +36,71 @@ int	dup_check(int *a)
 	return (0);
 }
 
-int	*stack_maker(int ac, char **av)
+int	*single_stack_maker(char *av, int *size)
 {
 	int	i;
 	int	*arr;
-	int	size;
+	char	**splitted;
 
-	if (!av[2])
+	splitted = ft_split(av, ' ');
+	*size = 0;
+	while(splitted[*size])
+		(*size)++;
+	arr = (int *)ft_calloc(*size, sizeof(int));
+	i = 0;
+	while (i < *size)
 	{
-		av = ft_split(av[1], ' ');
-		size = 0;
-		while(av[size])
-			size++;
-		arr = (int *)ft_calloc(size + 1, sizeof(int));
-		i = -1;
-		while (++i < size)
-			arr[i] = ft_atoi(av[i]);
+		arr[i] = ft_atoi(splitted[i]);
+		i++;
 	}
-	else
+	i = 0;
+	while (i < *size)
 	{
-		i = 0;
-		arr = (int *)ft_calloc(ac, sizeof(int));
-		while (++i < ac)
-			arr[i - 1] = ft_atoi(av[i]);
+		free(splitted[i]);
+		i++;
 	}
+	free(splitted);
 	return (arr);
 }
 
-void	radix_sort(int *a, int *b, int size)
+int	*stack_maker(int ac, char **av, int *size)
 {
 	int	i;
-	int	small;
+	int	*arr;
 
-	i = -1;
-	while (++i < size)
-		if(a[i] & 1 == 0)
-			pb(a, b);
-	
+	if (ac == 2)
+	{
+		arr = single_stack_maker(av[1], size);
+	}
+	else
+	{
+		i = 1;
+		*size = ac - 1;
+		arr = (int *)ft_calloc(*size, sizeof(int));
+		while (i < ac)
+		{
+			arr[i - 1] = ft_atoi(av[i]);
+			i++;
+		}
+	}
+	return (arr);
 }
 
 int	main(int ac, char **av)
 {
 	int	size;
-	int	*a = stack_maker(ac, av);
-	while(a[size])
-			size++;
-	int	b[size];
+	int	*a = stack_maker(ac, av, &size);
+	int	*b = ft_calloc(size, sizeof(int));
 
 	radix_sort(a, b, size);
-	for (int i = 0; i < ac - 1 ; i++)
-	{
-		if(a[i] != 0)
-			ft_printf("%i ", a[i]);
-		if(b[i]!= 0)
-			ft_printf("%i", b[i]);
-		ft_printf("\n");
-	}
-	ft_printf("a b");
+	normalize_array(a, size);
+	ft_printf("a: ");
+	for (int i = 0; i < size; i++)
+		ft_printf("%d ", a[i]);
+	ft_printf("\nb: ");
+	for (int i = 0; i < size; i++)
+		ft_printf("%d ", b[i]);
+	ft_printf("\n");
+	free(a);
+	free(b);
 }

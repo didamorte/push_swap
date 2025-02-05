@@ -6,62 +6,58 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:43:04 by diogribe          #+#    #+#             */
-/*   Updated: 2025/02/03 20:50:55 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/05 21:18:58 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* push into a */
-void	pa(int *a, int *b)
+void	pa(int *a, int *b, int *size_a, int *size_b)
 {
 	int	i;
 
+	if (*size_b == 0)
+		return ;
+	i = *size_a;
+	while (i > 0)
+	{
+		a[i] = a[i - 1];
+		i--;
+	}
+	a[0] = b[0];
+	(*size_a)++;
+	(*size_b)--;
 	i = 0;
-	if (!a[0])
+	while (i < *size_b)
 	{
-		a[0] = b[0];
-		while (b[++i])
-			b[i - 1] = b[i];
-		b[i - 1] = 0;
+		b[i] = b[i + 1];
+		i++;
 	}
-	else
-	{
-		while (a[i])
-			i++;
-		while (i--)
-			a[i] = a[i - 1];
-		a[0] = b[0];
-		i = 0;
-		while (b[++i])
-			b[i - 1] = b[i];
-		b[i - 1] = 0;
-	}
+	b[*size_b] = 0;
 }
 
 /* push into b */
-void	pb(int *a, int *b)
+void	pb(int *a, int *b, int *size_a, int *size_b)
 {
 	int	i;
 
+	if (*size_a == 0)
+		return;
+	i = *size_b;
+	while (i > 0)
+	{
+		b[i] = b[i - 1];
+		i--;
+	}
+	b[0] = a[0];
+	(*size_b)++;
+	(*size_a)--;
 	i = 0;
-	if (!b[0])
+	while (i < *size_a)
 	{
-		b[0] = a[0];
-		while (a[++i])
-			a[i - 1] = a[i];
-		a[i - 1] = 0;
+		a[i] = a[i + 1];
+		i++;
 	}
-	else
-	{
-		while (b[i])
-			i++;
-		while (i--)
-			b[i] = b[i - 1];
-		b[0] = a[0];
-		i = 0;
-		while (a[++i])
-			a[i - 1] = a[i];
-		a[i - 1] = 0;
-	}
+	a[*size_a] = 0;
 }

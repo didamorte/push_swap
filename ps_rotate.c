@@ -6,53 +6,51 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:43:01 by diogribe          #+#    #+#             */
-/*   Updated: 2025/01/30 17:32:03 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/05 20:25:39 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* rotate a */
-void	ra(int *a)
+void	ra(int *a, int size_a)
 {
 	int	x;
 	int	i;
 
-	i = 1;
-	if (a[0] && a[1])
+	if (size_a < 2)
+		return ;
+	i = 0;
+	x = a[0];
+	while (i < size_a - 1)
 	{
-		x = a[0];
-		while (a[i])
-		{
-			a[i - 1] = a[i];
-			i++;
-		}
-		a[i - 1] = x;
+		a[i] = a[i + 1];
+		i++;
 	}
+	a[size_a - 1] = x;
 }
 
 /* rotate b */
-void	rb(int *b)
+void	rb(int *b, int size_b)
 {
 	int	x;
 	int	i;
 
-	i = 1;
-	if (b[0] && b[1])
+	if (size_b < 2)
+		return ;
+	i = 0;
+	x = b[0];
+	while (i < size_b - 1)
 	{
-		x = b[0];
-		while (b[i])
-		{
-			b[i - 1] = b[i];
-			i++;
-		}
-		b[i - 1] = x;
+		b[i] = b[i + 1];
+		i++;
 	}
+	b[size_b - 1] = x;
 }
 
 /* rotate a and b */
-void	rr(int *a, int *b)
+void	rr(int *a, int *b, int size_a, int size_b)
 {
-	ra(a);
-	rb(b);
+	ra(a, size_a);
+	rb(b, size_b);
 }
