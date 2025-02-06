@@ -13,7 +13,8 @@ SRCS := push_swap.c \
 		ps_rotate.c \
 		ps_reverse.c \
 		radix.c \
-		normalize.c
+		normalize.c \
+		error.c
 
 OBJS := $(SRCS:.c=.o)
 

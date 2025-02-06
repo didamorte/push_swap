@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:41:04 by diogribe          #+#    #+#             */
-/*   Updated: 2025/02/05 22:52:55 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/05 23:44:53 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,15 +92,8 @@ int	main(int ac, char **av)
 	int	*a = stack_maker(ac, av, &size);
 	int	*b = ft_calloc(size, sizeof(int));
 
-	radix_sort(a, b, size);
 	normalize_array(a, size);
-	ft_printf("a: ");
-	for (int i = 0; i < size; i++)
-		ft_printf("%d ", a[i]);
-	ft_printf("\nb: ");
-	for (int i = 0; i < size; i++)
-		ft_printf("%d ", b[i]);
-	ft_printf("\n");
+	radix_sort(a, b, size);
 	free(a);
 	free(b);
 }

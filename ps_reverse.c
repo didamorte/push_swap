@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:42:53 by diogribe          #+#    #+#             */
-/*   Updated: 2025/02/05 21:19:17 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/05 23:43:07 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	rra(int *a, int size_a)
 		i--;
 	}
 	a[0] = x;
+	ft_printf("rra\n");
 }
 
 /* reverse rotate b */
@@ -46,6 +47,7 @@ void	rrb(int *b, int size_b)
 		i--;
 	}
 	b[0] = x;
+	ft_printf("rrb\n");
 }
 
 /* reverse rotate a and b */
@@ -53,4 +55,5 @@ void	rrr(int *a, int *b, int size_a, int size_b)
 {
 	rra(a, size_a);
 	rrb(b, size_b);
+	ft_printf("rrr\n");
 }

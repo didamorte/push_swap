@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:43:04 by diogribe          #+#    #+#             */
-/*   Updated: 2025/02/05 21:18:58 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/05 23:42:26 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	pa(int *a, int *b, int *size_a, int *size_b)
 		i++;
 	}
 	b[*size_b] = 0;
+	ft_printf("pa\n");
 }
 
 /* push into b */
@@ -60,4 +61,5 @@ void	pb(int *a, int *b, int *size_a, int *size_b)
 		i++;
 	}
 	a[*size_a] = 0;
+	ft_printf("pb\n");
 }

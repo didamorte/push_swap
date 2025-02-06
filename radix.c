@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 20:54:30 by diogribe          #+#    #+#             */
-/*   Updated: 2025/02/05 22:26:50 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/05 23:41:30 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,15 @@ int	count_max_bits(int *arr, int size)
 
 void	radix_sort(int *a, int *b, int size)
 {
-	int num_bits = count_max_bits(a, size);
+	int	num_bits;
+	int	a_size;
+	int	b_size;
+	int	bit;
+	int	i;
 
-	int	a_size = size;
-	int	b_size = 0;
-	int	bit = 0;
-	int i = 0;
-
+	num_bits = count_max_bits(a, size);
+	a_size = size;
+	b_size = bit = 0;
 	while (bit < num_bits)
 	{
 		i = a_size;
