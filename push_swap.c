@@ -6,31 +6,40 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:41:04 by diogribe          #+#    #+#             */
-/*   Updated: 2025/02/05 23:44:53 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/07 22:53:26 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	dup_check(int *a)
+int	stack_error(int *arr, int size)
 {
 	int	i;
-	int	j;
-	int	size;
 
 	i = 0;
-	size = 0;
-	while (a[size])
-		size++;
-	while (i < size - 1)
+	if (size == 1)
+		return (2);
+	if (dup_check(arr, size))
+		return (write(2, "Error\n", 7));
+	if (is_sorted(arr, size))
+		return (2);
+	i++;
+	return (0);
+}
+
+int	arg_error(int ac, char **av)
+{
+	int	i;
+
+	i = 1;
+	if (ac < 2)
+		return (0);
+	while (i < ac)
 	{
-		j = i + 1;
-		while (j < size)
-		{
-			if (a[i] == a[j])
-				return (1);
-			j++;
-		}
+		if (!is_valid_number(av[i]))
+			return (write(2, "Error\n", 7));
+		if (!in_range(av[i]))
+			return (write(2, "Error\n", 7));
 		i++;
 	}
 	return (0);
@@ -38,13 +47,13 @@ int	dup_check(int *a)
 
 int	*single_stack_maker(char *av, int *size)
 {
-	int	i;
-	int	*arr;
+	int		i;
+	int		*arr;
 	char	**splitted;
 
 	splitted = ft_split(av, ' ');
 	*size = 0;
-	while(splitted[*size])
+	while (splitted[*size])
 		(*size)++;
 	arr = (int *)ft_calloc(*size, sizeof(int));
 	i = 0;
@@ -89,11 +98,28 @@ int	*stack_maker(int ac, char **av, int *size)
 int	main(int ac, char **av)
 {
 	int	size;
-	int	*a = stack_maker(ac, av, &size);
-	int	*b = ft_calloc(size, sizeof(int));
+	int	*a;
+	int	*b;
 
+	if (arg_error(ac, av) > 0)
+		return (0);
+	a = stack_maker(ac, av, &size);
+	b = ft_calloc(size, sizeof(int));
+	if (stack_error(a, size) > 0)
+	{
+		free_stacks(a, b);
+		return (0);
+	}
 	normalize_array(a, size);
-	radix_sort(a, b, size);
-	free(a);
-	free(b);
+	if (size == 2)
+		sort_two(a);
+	else if (size == 3)
+		three_sort(a);
+	else if (size == 4)
+		four_sort(a, b);
+	else if (size == 5)
+		five_sort(a, b);
+	else
+		big_sort(a, b, size);
+	free_stacks(a, b);
 }

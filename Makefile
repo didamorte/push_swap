@@ -12,9 +12,10 @@ SRCS := push_swap.c \
 		ps_push.c \
 		ps_rotate.c \
 		ps_reverse.c \
-		radix.c \
 		normalize.c \
-		error.c
+		error.c \
+		sorts.c \
+		big_sort.c
 
 OBJS := $(SRCS:.c=.o)
 

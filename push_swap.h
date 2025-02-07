@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 22:13:49 by diogribe          #+#    #+#             */
-/*   Updated: 2025/02/05 22:43:52 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/07 20:08:42 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,18 @@
 
 # include "libft/libft.h"
 # include "libft/ft_printf/ft_printf.h"
+
+typedef struct s_top_bottom
+{
+	int	top;
+	int	bottom;
+}		t_top_bottom;
+
+typedef struct s_chunk
+{
+	int	start;
+	int	end;
+}	t_chunk;
 
 /* Push */
 
@@ -39,10 +51,22 @@ void	rra(int *a, int size_a);
 void	rrb(int *b, int size_b);
 void	rrr(int *a, int *b, int size_a, int size_b);
 
-/* Radix */
-void	radix_sort(int *a, int *b, int size);
+/* Sorts */
+void	sort_two(int *a);
+void	three_sort(int *a);
+void	four_sort(int *a, int *b);
+void	five_sort(int *a, int *b);
+void	big_sort(int *a, int *b, int size);
 
 /* Normalize */
 void	normalize_array(int *arr, int size);
+
+/* Errors */
+
+int		is_valid_number(const char *str);
+int		dup_check(int *a, int size);
+int		in_range(const char *str);
+int		is_sorted(int *arr, int size);
+void	free_stacks(int *a, int *b);
 
 #endif

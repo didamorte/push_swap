@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_istest.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:43:51 by diogribe          #+#    #+#             */
-/*   Updated: 2024/11/04 17:43:51 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/06 20:52:18 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* int main()
+int	ft_isspace(int c)
 {
-	printf("%d", ft_isalnum('1'));
-	printf("%d", ft_isalpha('a'));
-	printf("%d", ft_isascii(' '));
-	printf("%d", ft_isdigit('8'));
-	printf("%d", ft_isprint('@'));
-} */
+	return (c == ' ' || c == '\t' || c == '\n');
+}

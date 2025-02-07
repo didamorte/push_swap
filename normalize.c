@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 22:34:14 by diogribe          #+#    #+#             */
-/*   Updated: 2025/02/05 22:40:44 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/06 20:56:52 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	normalize_array(int *arr, int size)
 			if (arr[i] == copy[j])
 			{
 				arr[i] = j;
-				break;
+				break ;
 			}
 			j++;
 		}

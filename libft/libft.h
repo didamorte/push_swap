@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:38:20 by diogribe          #+#    #+#             */
-/*   Updated: 2024/10/28 12:26:06 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/06 19:33:06 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@
 # include <string.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <limits.h>
 
 /* PARTE 1 */
+
 /*Checa se eh letra*/
 int		ft_isalpha(int c);
 /*Checa se eh numero*/
@@ -29,6 +31,8 @@ int		ft_isalnum(int c);
 int		ft_isascii(int c);
 /*Checa se eh printavel*/
 int		ft_isprint(int c);
+/*Checa se eh espaço*/
+int		ft_isspace(int c);
 
 /*Retorna o tamanho da string*/
 size_t	ft_strlen(const char *s);
@@ -63,6 +67,8 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 /*passa string a inteiro*/
 int		ft_atoi(const char *nptr);
+/*passa string a long*/
+long	ft_atol(const char *nptr);
 
 /*aloca memoria dinamica*/
 void	*ft_calloc(size_t nmemb, size_t size);

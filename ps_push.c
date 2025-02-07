@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:43:04 by diogribe          #+#    #+#             */
-/*   Updated: 2025/02/05 23:42:26 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/06 20:57:32 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	pb(int *a, int *b, int *size_a, int *size_b)
 	int	i;
 
 	if (*size_a == 0)
-		return;
+		return ;
 	i = *size_b;
 	while (i > 0)
 	{
