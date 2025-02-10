@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 23:58:46 by diogribe          #+#    #+#             */
-/*   Updated: 2025/02/07 22:39:36 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:28:33 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	is_valid_number(const char *str)
 		return (0);
 	while (str[i])
 	{
+		if (str[i] == '-' || str[i] == '+')
+			i++;
 		if (!ft_isdigit(str[i]) && (ft_isspace(str[i])
 				&& ft_isspace(str[i + 1])) && !ft_isspace(str[i]))
 			return (0);

@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:41:04 by diogribe          #+#    #+#             */
-/*   Updated: 2025/02/07 22:53:26 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:27:45 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int	arg_error(int ac, char **av)
 	while (i < ac)
 	{
 		if (!is_valid_number(av[i]))
-			return (write(2, "Error\n", 7));
+			return (write(2, "ErrorN\n", 7));
 		if (!in_range(av[i]))
-			return (write(2, "Error\n", 7));
+			return (write(2, "ErrorR\n", 7));
 		i++;
 	}
 	return (0);

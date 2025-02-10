@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 22:13:49 by diogribe          #+#    #+#             */
-/*   Updated: 2025/02/07 20:08:42 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/10 16:55:44 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,10 @@ int		dup_check(int *a, int size);
 int		in_range(const char *str);
 int		is_sorted(int *arr, int size);
 void	free_stacks(int *a, int *b);
+
+/* utils */
+t_top_bottom	scan_top_n_bot(int *a, int size, int chunk_start, int chunk_end);
+int		find_largest_index(int *b, int b_size);
+int	get_chunk_size(int size);
 
 #endif
