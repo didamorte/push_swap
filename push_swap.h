@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 22:13:49 by diogribe          #+#    #+#             */
-/*   Updated: 2025/02/10 16:55:44 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/11 22:58:36 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,6 @@
 
 # include "libft/libft.h"
 # include "libft/ft_printf/ft_printf.h"
-
-typedef struct s_top_bottom
-{
-	int	top;
-	int	bottom;
-}		t_top_bottom;
-
-typedef struct s_chunk
-{
-	int	start;
-	int	end;
-}	t_chunk;
 
 /* Push */
 
@@ -52,13 +40,15 @@ void	rrb(int *b, int size_b);
 void	rrr(int *a, int *b, int size_a, int size_b);
 
 /* Sorts */
+
 void	sort_two(int *a);
 void	three_sort(int *a);
 void	four_sort(int *a, int *b);
 void	five_sort(int *a, int *b);
-void	big_sort(int *a, int *b, int size);
+void	radix_sort(int *a, int *b, int a_size, int b_size);
 
 /* Normalize */
+
 void	normalize_array(int *arr, int size);
 
 /* Errors */
@@ -68,10 +58,5 @@ int		dup_check(int *a, int size);
 int		in_range(const char *str);
 int		is_sorted(int *arr, int size);
 void	free_stacks(int *a, int *b);
-
-/* utils */
-t_top_bottom	scan_top_n_bot(int *a, int size, int chunk_start, int chunk_end);
-int		find_largest_index(int *b, int b_size);
-int	get_chunk_size(int size);
 
 #endif

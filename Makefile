@@ -15,8 +15,7 @@ SRCS := push_swap.c \
 		normalize.c \
 		error.c \
 		sorts.c \
-		big_sort.c \
-		big_sort_utils.c
+		radix_sort.c \
 
 OBJS := $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:41:04 by diogribe          #+#    #+#             */
-/*   Updated: 2025/02/10 15:27:45 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/11 22:52:57 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	stack_error(int *arr, int size)
 	if (size == 1)
 		return (2);
 	if (dup_check(arr, size))
-		return (write(2, "Error\n", 7));
+		return (write(2, "ErrorD\n", 7));
 	if (is_sorted(arr, size))
 		return (2);
 	i++;
@@ -95,6 +95,25 @@ int	*stack_maker(int ac, char **av, int *size)
 	return (arr);
 }
 
+void print_stacks(int *a, int *b, int a_size, int b_size)
+{
+    int i;
+
+    printf("Stack A: ");
+    for (i = 0; i < a_size; i++)
+	{
+        printf("%d ", a[i]);
+	}
+    printf("\n");
+
+    printf("Stack B: ");
+    for (i = 0; i < b_size; i++)
+	{
+        printf("%d ", b[i]);
+	}
+	printf("\n\n");
+}
+
 int	main(int ac, char **av)
 {
 	int	size;
@@ -120,6 +139,7 @@ int	main(int ac, char **av)
 	else if (size == 5)
 		five_sort(a, b);
 	else
-		big_sort(a, b, size);
+		radix_sort(a, b, size, 0);
+	//print_stacks(a, b, size, size);
 	free_stacks(a, b);
 }
