@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diogribe <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: diogribe <diogribe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 01:05:21 by diogribe          #+#    #+#             */
-/*   Updated: 2025/02/12 03:46:29 by diogribe         ###   ########.fr       */
+/*   Updated: 2025/02/13 18:32:27 by diogribe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,38 +35,45 @@ int	max_bits(int max)
 	return (max_bits);
 }
 
+void	distribute_a_to_b(int *a, int *b, int *sizes, int bit)
+{
+	int	count;
+	int	initial_a_size;
+
+	initial_a_size = sizes[0];
+	count = -1;
+	while (++count < initial_a_size)
+	{
+		if ((a[0] >> bit) & 1)
+			ra(a, sizes[0]);
+		else
+			pb(a, b, &sizes[0], &sizes[1]);
+	}
+}
+
+void	recollect_b_to_a(int *a, int *b, int *sizes)
+{
+	while (sizes[1] > 0)
+		pa(a, b, &sizes[0], &sizes[1]);
+}
+
 void	radix_sort(int *a, int *b, int a_size, int b_size)
 {
-	int	bits;
-	int	big;
-	int	i;
-	int	j;
+	int	sizes[2];
+	int	bit;
+	int	max_bit;
+	int	max_num;
 
-	big = max_number(a, a_size);
-	bits = max_bits(big);
-	i = -1;
-	while (++i < bits)
+	sizes[0] = a_size;
+	sizes[1] = b_size;
+	max_num = max_number(a, sizes[0]);
+	max_bit = max_bits(max_num);
+	bit = -1;
+	while (++bit < max_bit)
 	{
-		j = -1;
-		while (++j <= big && !is_sorted(a, a_size))
-		{
-			if ((a[0] >> i) & 1)
-				ra(a, a_size);
-			else
-				pb(a, b, &a_size, &b_size);
-		}
-		while (b_size-- && j <= bits && !is_sorted(b, b_size))
-		{
-			if (((b[0] >> j) & 1) == 0)
-				rb(b, b_size);
-			else
-				pa(a, b, &a_size, &b_size);
-		}
-		if (is_sorted(b, b_size))
-			while (b_size != 0)
-				pa(a, b, &a_size, &b_size);
-			
+		if (is_sorted(a, sizes[0]))
+			break ;
+		distribute_a_to_b(a, b, sizes, bit);
+		recollect_b_to_a(a, b, sizes);
 	}
-	while (b_size != 0)
-		pa(a, b, &a_size, &b_size);
 }
